@@ -1,0 +1,257 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana>cd k8s-demo
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get all
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f mongo-config.yaml
+error: error validating "mongo-config.yaml": error validating data: failed to download openapi: Get "https://127.0.0.1:60703/openapi/v2?timeout=32s": dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.; if you choose to ignore these errors, turn validation off with --validate=false
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f mongo-secret.yaml
+error: error validating "mongo-secret.yaml": error validating data: failed to download openapi: Get "https://127.0.0.1:60703/openapi/v2?timeout=32s": dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.; if you choose to ignore these errors, turn validation off with --validate=false
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+Unable to connect to the server: dial tcp 127.0.0.1:60703: connectex: No connection could be made because the target machine actively refused it.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Home 25H2
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+🏃  Updating the running docker "minikube" container ... 
+🐳  Preparing Kubernetes v1.35.1 on Docker 29.2.1 ... 
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube get pod
+Error: unknown command "get" for "minikube"
+Run 'minikube --help' for usage.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+NAME                                 READY   STATUS    RESTARTS        AGE
+mongo-deployment-54f4bddd58-6558q    1/1     Running   1 (4m32s ago)   31m
+webapp-deployment-5766fd95c7-5lhj5   1/1     Running   1 (4m32s ago)   28m
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get all
+NAME                                     READY   STATUS    RESTARTS        AGE
+pod/mongo-deployment-54f4bddd58-6558q    1/1     Running   1 (4m51s ago)   31m
+pod/webapp-deployment-5766fd95c7-5lhj5   1/1     Running   1 (4m51s ago)   28m
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes       ClusterIP   10.96.0.1       <none>        443/TCP          117m
+service/mongo-service    ClusterIP   10.96.223.159   <none>        27017/TCP        31m
+service/webapp-service   NodePort    10.96.94.43     <none>        3000:30100/TCP   31m
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-deployment    1/1     1            1           31m
+deployment.apps/webapp-deployment   1/1     1            1           31m
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-deployment-54f4bddd58    1         1         1       31m
+replicaset.apps/webapp-deployment-5766fd95c7   1         1         1       28m
+replicaset.apps/webapp-deployment-fdc999689    0         0         0       31m
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikubet ip
+'minikubet' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikubect ip
+'minikubect' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube ip
+192.168.49.2
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>curl http://192.168.49.2:30100
+curl: (28) Failed to connect to 192.168.49.2 port 30100 after 21051 ms: Could not connect to server
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>curl http://10.96.94.43:30100
+curl: (28) Failed to connect to 10.96.94.43 port 30100 after 21033 ms: Could not connect to server
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl patch deployment webapp -p '{"spec":{"revisionHistoryLimit":1}}'
+Error from server (NotFound): deployments.apps "webapp" not found
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl delete rs replicaset.apps/webapp-deployment-fdc999689
+error: there is no need to specify a resource type as a separate argument when passing arguments in resource/name form (e.g. 'kubectl get resource/<resource_name>' instead of 'kubectl get resource resource/<resource_name>'
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl delete rs webapp-deployment-fdc999689                
+replicaset.apps "webapp-deployment-fdc999689" deleted from default namespace
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get all
+NAME                                     READY   STATUS    RESTARTS      AGE
+pod/mongo-deployment-54f4bddd58-6558q    1/1     Running   1 (21m ago)   48m
+pod/webapp-deployment-5766fd95c7-5lhj5   1/1     Running   1 (21m ago)   45m
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes       ClusterIP   10.96.0.1       <none>        443/TCP          134m
+service/mongo-service    ClusterIP   10.96.223.159   <none>        27017/TCP        48m
+service/webapp-service   NodePort    10.96.94.43     <none>        3000:30100/TCP   47m
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-deployment    1/1     1            1           48m
+deployment.apps/webapp-deployment   1/1     1            1           47m
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-deployment-54f4bddd58    1         1         1       48m
+replicaset.apps/webapp-deployment-5766fd95c7   1         1         1       45m
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube ip     
+192.168.49.2
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>curl http://192.168.49.2:30100
+curl: (28) Failed to connect to 192.168.49.2 port 30100 after 21027 ms: Could not connect to server
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube stop
+✋  Stopping node "minikube"  ...
+🛑  Powering off "minikube" via SSH ...
+🛑  1 node stopped.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Home 25H2
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+🔄  Restarting existing docker container for "minikube" ... 
+🐳  Preparing Kubernetes v1.35.1 on Docker 29.2.1 ... 
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: default-storageclass, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube ip   
+192.168.49.2
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>curl http://192.168.49.2:30100
+curl: (28) Failed to connect to 192.168.49.2 port 30100 after 21031 ms: Could not connect to server
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube delete
+🔥  Deleting "minikube" in docker ...
+🔥  Deleting container "minikube" ...
+🔥  Removing C:\Users\Papa\.minikube\machines\minikube ...
+💀  Removed all traces of the "minikube" cluster.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+E0404 21:46:33.644466   10876 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it."
+E0404 21:46:33.646556   10876 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it."
+E0404 21:46:33.647555   10876 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it."
+E0404 21:46:33.648556   10876 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it."
+E0404 21:46:33.648556   10876 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"http://localhost:8080/api?timeout=32s\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it."
+Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Home 25H2
+✨  Automatically selected the docker driver
+❗  Starting v1.39.0, minikube will default to "containerd" container runtime. See #21973 for more info.
+📌  Using Docker Desktop driver with root privileges
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+🔥  Creating docker container (CPUs=2, Memory=4000MB) ... 
+🐳  Preparing Kubernetes v1.35.1 on Docker 29.2.1 ... 
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get pod
+No resources found in default namespace.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>bukectl apply -f mongo-secret.yaml
+'bukectl' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f mongo-secret.yaml
+secret/mongo-secret created
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f mongo-config.yaml
+configmap/mongo-config created
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f mongo.yaml       
+deployment.apps/mongo-deployment created
+service/mongo-service created
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl apply -f webapp.yaml
+deployment.apps/webapp-deployment created
+service/webapp-service created
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get all
+NAME                                     READY   STATUS              RESTARTS   AGE
+pod/mongo-deployment-54f4bddd58-z5sv7    0/1     ContainerCreating   0          20s
+pod/webapp-deployment-5766fd95c7-kgsbq   0/1     ContainerCreating   0          12s
+
+NAME                     TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          90s
+service/mongo-service    ClusterIP   10.105.168.66    <none>        27017/TCP        20s
+service/webapp-service   NodePort    10.106.151.177   <none>        3000:30100/TCP   12s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-deployment    0/1     1            0           20s
+deployment.apps/webapp-deployment   0/1     1            0           12s
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-deployment-54f4bddd58    1         1         0       20s
+replicaset.apps/webapp-deployment-5766fd95c7   1         1         0       12s
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>kubectl get all
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/mongo-deployment-54f4bddd58-z5sv7    1/1     Running   0          2m3s
+pod/webapp-deployment-5766fd95c7-kgsbq   1/1     Running   0          115s
+
+NAME                     TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP          3m13s
+service/mongo-service    ClusterIP   10.105.168.66    <none>        27017/TCP        2m3s
+service/webapp-service   NodePort    10.106.151.177   <none>        3000:30100/TCP   115s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/webapp-deployment   1/1     1            1           115s
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-deployment-54f4bddd58    1         1         1       2m3s
+replicaset.apps/webapp-deployment-5766fd95c7   1         1         1       115s
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube ip
+192.168.49.2
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>curl http://192.168.49.2:30100
+curl: (28) Failed to connect to 192.168.49.2 port 30100 after 21046 ms: Could not connect to server
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube tunnel
+✅  Tunnel successfully started
+
+📌  NOTE: Please do not close this terminal as this process must stay alive for the tunnel to be accessible ...
+
+
+C:\Users\Papa\Documents\Projects\k8s-course-nana\k8s-demo>minikube service webapp-service
+┌───────────┬────────────────┬─────────────┬───────────────────────────┐
+│ NAMESPACE │      NAME      │ TARGET PORT │            URL            │
+├───────────┼────────────────┼─────────────┼───────────────────────────┤
+│ default   │ webapp-service │ 3000        │ http://192.168.49.2:30100 │
+└───────────┴────────────────┴─────────────┴───────────────────────────┘
+🔗  Starting tunnel for service webapp-service.
+┌───────────┬────────────────┬─────────────┬────────────────────────┐
+│ NAMESPACE │      NAME      │ TARGET PORT │          URL           │
+├───────────┼────────────────┼─────────────┼────────────────────────┤
+│ default   │ webapp-service │             │ http://127.0.0.1:49860 │
+└───────────┴────────────────┴─────────────┴────────────────────────┘
+🎉  Opening service default/webapp-service in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+
